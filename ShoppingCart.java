@@ -4,7 +4,6 @@ import java.text.*;
 * Containing items and calculating price.
 */
 public class ShoppingCart {
-    public static enum ItemType { NEW, REGULAR, SECOND_FREE, SALE };
     /**
      * Tests all class methods.
      */
