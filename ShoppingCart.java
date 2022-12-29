@@ -133,18 +133,27 @@ public class ShoppingCart {
      * Trims string if its length > width.
      * @param align -1 for align left, 0 for center and +1 for align right.
      */
-    public static void appendFormatted(StringBuilder sb, String value, int align, int width){
-        if (value.length() > width)
-            value = value.substring(0,width);
-        int before = (align == 0)
-            ? (width - value.length()) / 2
-            : (align == -1) ? 0 : width - value.length();
-        int after = width - value.length() - before;
-        while (before-- > 0)
+    public static void appendFormatted(StringBuilder sb, String value, int align, int width) {
+        int before;
+        int after;
+        if (value.length() > width) {
+            value = value.substring(0, width);
+        }
+        if (align == 0) {
+            before = (width - value.length()) / 2;
+        } else if (align == -1) {
+            before = 0;
+        } else {
+            before = width - value.length();
+        }
+        after = width - value.length() - before;
+        while (before-- > 0) {
             sb.append(" ");
+        }
         sb.append(value);
-        while (after-- > 0)
+        while (after-- > 0) {
             sb.append(" ");
+        }
         sb.append(" ");
     }
     /**
