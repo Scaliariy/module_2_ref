@@ -147,15 +147,17 @@ public class ShoppingCart {
             before = width - value.length();
         }
         after = width - value.length() - before;
-        while (before-- > 0) {
+        stringAppend(sb, value, before);
+        stringAppend(sb, " ", after);
+    }
+
+    private static void stringAppend(StringBuilder sb, String value, int side) {
+        while (side-- > 0) {
             sb.append(" ");
         }
         sb.append(value);
-        while (after-- > 0) {
-            sb.append(" ");
-        }
-        sb.append(" ");
     }
+
     /**
      * Calculates item's discount.
      * For NEW item discount is 0%;
