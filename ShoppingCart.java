@@ -171,11 +171,9 @@ public class ShoppingCart {
                 discount = 70;
                 break;
         }
-        if (discount < 80) {
-            discount += quantity / 10;
+        discount += quantity / 10;
         if (discount > 80)
             discount = 80;
-        }
         return discount;
     }
     /** item info */
