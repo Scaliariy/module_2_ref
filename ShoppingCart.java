@@ -139,6 +139,14 @@ public class ShoppingCart {
         if (value.length() > width) {
             value = value.substring(0, width);
         }
+        before = getBefore(value, align, width);
+        after = width - value.length() - before;
+        stringAppend(sb, value, before);
+        stringAppend(sb, " ", after);
+    }
+
+    private static int getBefore(String value, int align, int width) {
+        int before;
         if (align == 0) {
             before = (width - value.length()) / 2;
         } else if (align == -1) {
@@ -146,9 +154,7 @@ public class ShoppingCart {
         } else {
             before = width - value.length();
         }
-        after = width - value.length() - before;
-        stringAppend(sb, value, before);
-        stringAppend(sb, " ", after);
+        return before;
     }
 
     private static void stringAppend(StringBuilder sb, String value, int side) {
